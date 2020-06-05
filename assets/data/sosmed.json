@@ -1,0 +1,14 @@
+{
+    "listSosmeds": [
+        {
+            "iconName": "linkedin",
+            "name": "LinkedIn",
+            "link": "https://www.linkedin.com/in/dhimas-bagus-rizky-dewanto-449b6b151/"
+        },
+        {
+            "iconName": "github",
+            "name": "GitHub",
+            "link": "https://github.com/dhimasdewanto"
+        }
+    ]
+}
