@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:web_portofolio/models/sosmed_model.dart';
 import 'package:web_portofolio/settings/app_settings.dart';
 import 'package:web_portofolio/utils/json_sosmed.dart';
+import 'package:web_portofolio/widgets/unique_button.dart';
 import 'package:web_portofolio/widgets/profile_widget.dart';
 import 'package:web_portofolio/widgets/sosmed_widget.dart';
 
@@ -42,16 +43,9 @@ class HomePage extends StatelessWidget {
               },
             ),
             const SizedBox(height: AppSettings.padding),
-            RaisedButton(
+            UniqueButton(
+              text: 'My Projects',
               onPressed: () {},
-              color: Colors.black,
-              colorBrightness: Brightness.dark,
-              child: const Text(
-                'My Projects',
-                style: TextStyle(
-                  color: Colors.yellow,
-                ),
-              ),
             ),
           ],
         ),
