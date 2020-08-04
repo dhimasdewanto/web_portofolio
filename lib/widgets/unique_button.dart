@@ -1,3 +1,4 @@
+import 'package:dough/dough.dart';
 import 'package:flutter/material.dart';
 
 class UniqueButton extends StatefulWidget {
@@ -23,7 +24,7 @@ class _UniqueButtonState extends State<UniqueButton> {
     vertical: 15.0,
   );
   final _changePadding = const EdgeInsets.symmetric(
-    horizontal: 40.0,
+    horizontal: 50.0,
     vertical: 15.0,
   );
 
@@ -42,20 +43,23 @@ class _UniqueButtonState extends State<UniqueButton> {
     final theme = Theme.of(context);
     final textTheme = theme.textTheme;
 
-    return InkWell(
-      onTap: widget.onPressed,
-      onHover: _changeBorderRadius,
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 200),
-        padding: _padding,
-        decoration: BoxDecoration(
-          color: textTheme.headline6.color,
-          borderRadius: _borderRadius,
-        ),
-        child: Text(
-          widget.text,
-          style: textTheme.headline6.copyWith(
-            color: theme.canvasColor,
+    return PressableDough(
+      child: InkWell(
+        onTap: widget.onPressed,
+        onHover: _changeBorderRadius,
+        child: AnimatedContainer(
+          curve: Curves.bounceOut,
+          duration: const Duration(milliseconds: 500),
+          padding: _padding,
+          decoration: BoxDecoration(
+            color: textTheme.headline6.color,
+            borderRadius: _borderRadius,
+          ),
+          child: Text(
+            widget.text,
+            style: textTheme.headline6.copyWith(
+              color: theme.canvasColor,
+            ),
           ),
         ),
       ),

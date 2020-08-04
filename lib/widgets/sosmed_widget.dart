@@ -1,3 +1,4 @@
+import 'package:dough/dough.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -21,12 +22,14 @@ class SosmedWidget extends StatelessWidget {
             padding: const EdgeInsets.symmetric(
               horizontal: 10.0,
             ),
-            child: FlatButton.icon(
-              icon: FaIcon(_getIcon(sosmed.iconName)),
-              label: Text(sosmed.name),
-              onPressed: () async {
-                await _lauchUrl(sosmed.link);
-              },
+            child: PressableDough(
+              child: FlatButton.icon(
+                icon: FaIcon(_getIcon(sosmed.iconName)),
+                label: Text(sosmed.name),
+                onPressed: () async {
+                  await _lauchUrl(sosmed.link);
+                },
+              ),
             ),
           );
         }).toList(),
