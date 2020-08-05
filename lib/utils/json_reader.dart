@@ -2,10 +2,12 @@ import 'dart:convert';
 
 import 'package:flutter/widgets.dart';
 
-abstract class JsonReader {
+abstract class JsonReader<T> {
   JsonReader(this.context);
 
   final BuildContext context;
+
+  Future<T> getJsonFile();
 
   @protected
   Future<ListOrMap> readJsonFile<ListOrMap>(String fileLocation) async {

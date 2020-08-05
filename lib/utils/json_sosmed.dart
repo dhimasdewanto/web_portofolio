@@ -4,9 +4,10 @@ import 'package:web_portofolio/settings/app_settings.dart';
 
 import 'json_reader.dart';
 
-class JsonSosmed extends JsonReader {
+class JsonSosmed extends JsonReader<List<SosmedModel>> {
   JsonSosmed(BuildContext context) : super(context);
 
+  @override
   Future<List<SosmedModel>> getJsonFile() async {
     final jsonMap = await readJsonFile<Map>(AppSettings.jsonSosmed);
     final listJsonSosmeds =
