@@ -1,3 +1,4 @@
+import 'package:dough/dough.dart';
 import 'package:flutter/material.dart';
 
 import '../models/project_model.dart';
@@ -18,10 +19,12 @@ class ProjectsPage extends StatelessWidget {
         iconTheme: const IconThemeData(
           color: Colors.black,
         ),
-        title: const Text(
-          "Back to Profile",
-          style: TextStyle(
-            color: Colors.black,
+        title: const PressableDough(
+          child: Text(
+            "Back to Profile",
+            style: TextStyle(
+              color: Colors.black,
+            ),
           ),
         ),
       ),
