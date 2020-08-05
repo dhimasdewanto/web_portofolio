@@ -4,6 +4,7 @@ import 'package:flutter/rendering.dart';
 
 import '../models/project_model.dart';
 import '../utils/json_projects.dart';
+import '../widgets/image_background.dart';
 import '../widgets/projects_widget.dart';
 
 class ProjectsPage extends StatelessWidget {
@@ -32,21 +33,28 @@ class ProjectsPage extends StatelessWidget {
           ),
         ),
       ),
-      body: FutureBuilder<List<ProjectModel>>(
-        future: jsonProjects,
-        builder: (context, snapshot) {
-          if (snapshot.hasData == false) {
-            return const Offstage();
-          }
+      body: Stack(
+        children: [
+          const ImageBackground(
+            alignment: Alignment.center,
+          ),
+          FutureBuilder<List<ProjectModel>>(
+            future: jsonProjects,
+            builder: (context, snapshot) {
+              if (snapshot.hasData == false) {
+                return const Offstage();
+              }
 
-          return ProjectsWidget(
-            listProjects: snapshot.data,
-            title: Text(
-              "My Projects",
-              style: Theme.of(context).textTheme.headline2,
-            ),
-          );
-        },
+              return ProjectsWidget(
+                listProjects: snapshot.data,
+                title: Text(
+                  "My Projects",
+                  style: Theme.of(context).textTheme.headline2,
+                ),
+              );
+            },
+          ),
+        ],
       ),
     );
   }
