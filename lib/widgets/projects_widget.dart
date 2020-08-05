@@ -26,8 +26,13 @@ class ProjectsWidget extends StatelessWidget {
       itemBuilder: (context, index) {
         // Top of ListView.
         if (index == 0) {
-          return PressableDough(
-            child: title,
+          return Padding(
+            padding: const EdgeInsets.symmetric(
+              vertical: AppSettings.padding,
+            ),
+            child: PressableDough(
+              child: title,
+            ),
           );
         }
 
