@@ -1,6 +1,7 @@
 import 'package:dough/dough.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:web_portofolio/widgets/tags_widget.dart';
 
 import '../models/project_model.dart';
 import '../settings/app_settings.dart';
@@ -50,6 +51,9 @@ class ProjectsWidget extends StatelessWidget {
             ),
             title: Text(project.name),
             subtitle: Text(project.description),
+            trailing: TagsWidget(
+              tags: project.tags,
+            ),
             onTap: () => _lauchUrl(project.url),
           ),
         );
