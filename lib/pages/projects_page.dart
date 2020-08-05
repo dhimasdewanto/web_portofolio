@@ -1,5 +1,6 @@
 import 'package:dough/dough.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 import '../models/project_model.dart';
 import '../utils/json_projects.dart';
@@ -19,11 +20,14 @@ class ProjectsPage extends StatelessWidget {
         iconTheme: const IconThemeData(
           color: Colors.black,
         ),
-        title: const PressableDough(
-          child: Text(
-            "Back to Profile",
-            style: TextStyle(
-              color: Colors.black,
+        title: const MouseRegion(
+          cursor: SystemMouseCursors.text,
+          child: PressableDough(
+            child: Text(
+              "Back to Profile",
+              style: TextStyle(
+                color: Colors.black,
+              ),
             ),
           ),
         ),

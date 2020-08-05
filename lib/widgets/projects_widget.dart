@@ -1,5 +1,6 @@
 import 'package:dough/dough.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:web_portofolio/widgets/tags_widget.dart';
 
@@ -31,8 +32,11 @@ class ProjectsWidget extends StatelessWidget {
             padding: const EdgeInsets.symmetric(
               vertical: AppSettings.padding,
             ),
-            child: PressableDough(
-              child: title,
+            child: MouseRegion(
+              cursor: SystemMouseCursors.text,
+              child: PressableDough(
+                child: title,
+              ),
             ),
           );
         }
