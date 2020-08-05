@@ -39,5 +39,4 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/data/profile.json
-    - assets/data/sosmed.json
+    - assets/data/

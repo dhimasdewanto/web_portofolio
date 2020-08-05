@@ -8,11 +8,11 @@ abstract class JsonReader {
   final BuildContext context;
 
   @protected
-  Future<Map> readJsonFile(String fileLocation) async {
+  Future<ListOrMap> readJsonFile<ListOrMap>(String fileLocation) async {
     final jsonFromFile = await DefaultAssetBundle.of(context).loadString(
       fileLocation,
     );
 
-    return json.decode(jsonFromFile) as Map;
+    return json.decode(jsonFromFile) as ListOrMap;
   }
 }

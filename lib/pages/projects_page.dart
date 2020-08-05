@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 
+import '../models/project_model.dart';
+import '../utils/json_projects.dart';
+import '../widgets/projects_widget.dart';
+
 class ProjectsPage extends StatelessWidget {
   const ProjectsPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final jsonProjects = JsonProjects(context).getJsonFile();
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).canvasColor,
@@ -19,11 +25,22 @@ class ProjectsPage extends StatelessWidget {
           ),
         ),
       ),
-      body: Center(
-        child: Text(
-          "My Projects",
-          style: Theme.of(context).textTheme.headline2,
-        ),
+      body: FutureBuilder<List<ProjectModel>>(
+        future: jsonProjects,
+        builder: (context, snapshot) {
+          if (snapshot.hasData == false) {
+            return const Offstage();
+          }
+
+          return ProjectsWidget(
+            listProjects: snapshot.data,
+            title: Text(
+              "My Projects",
+              style: Theme.of(context).textTheme.headline2,
+              textAlign: TextAlign.center,
+            ),
+          );
+        },
       ),
     );
   }

@@ -8,7 +8,7 @@ class JsonSosmed extends JsonReader {
   JsonSosmed(BuildContext context) : super(context);
 
   Future<List<SosmedModel>> getJsonFile() async {
-    final jsonMap = await readJsonFile(AppSettings.jsonSosmed);
+    final jsonMap = await readJsonFile<Map>(AppSettings.jsonSosmed);
     final listJsonSosmeds =
         jsonMap['listSosmeds'] as List;
     return listJsonSosmeds

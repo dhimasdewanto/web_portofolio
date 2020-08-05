@@ -8,7 +8,7 @@ class JsonProfile extends JsonReader {
   JsonProfile(BuildContext context) : super(context);
 
   Future<ProfileModel> getJsonFile() async {
-    final jsonMap = await readJsonFile(AppSettings.jsonProfile);
+    final jsonMap = await readJsonFile<Map>(AppSettings.jsonProfile);
     return ProfileModel.fromJson(jsonMap as Map<String, dynamic>);
   }
 }

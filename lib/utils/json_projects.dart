@@ -8,10 +8,8 @@ class JsonProjects extends JsonReader {
   JsonProjects(BuildContext context) : super(context);
 
   Future<List<ProjectModel>> getJsonFile() async {
-    final jsonMap = await readJsonFile(AppSettings.jsonSosmed);
-    final listJsonSosmeds =
-        jsonMap as List;
-    return listJsonSosmeds
+    final listJsonProjects = await readJsonFile<List>(AppSettings.jsonProjects);
+    return listJsonProjects
         .map((sosmed) => ProjectModel.fromJson(sosmed as Map<String, dynamic>))
         .toList();
   }
