@@ -44,7 +44,6 @@ class ProjectsPage extends StatelessWidget {
             title: Text(
               "My Projects",
               style: Theme.of(context).textTheme.headline2,
-              textAlign: TextAlign.center,
             ),
           );
         },

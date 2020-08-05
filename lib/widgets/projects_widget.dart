@@ -32,10 +32,12 @@ class ProjectsWidget extends StatelessWidget {
             padding: const EdgeInsets.symmetric(
               vertical: AppSettings.padding,
             ),
-            child: MouseRegion(
-              cursor: SystemMouseCursors.text,
-              child: PressableDough(
-                child: title,
+            child: Center(
+              child: MouseRegion(
+                cursor: SystemMouseCursors.text,
+                child: PressableDough(
+                  child: title,
+                ),
               ),
             ),
           );
