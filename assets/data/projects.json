@@ -1,0 +1,46 @@
+[
+    {
+        "name": "Flutter Pattern Templates",
+        "description": "Collection of best pattern and architecture for Flutter.",
+        "url": "https://github.com/dhimasdewanto/flutter_pattern_templates",
+        "image_url": "https://avatars2.githubusercontent.com/u/30433066?s=400&v=4",
+        "tags": [
+            "Flutter",
+            "BLoC",
+            "Clean Architecture"
+        ]
+    },
+    {
+        "name": "Android Pattern Templates",
+        "description": "Collection of best practice Android patterns.",
+        "url": "https://github.com/dhimasdewanto/AndroidPatternTemplates",
+        "image_url": "https://avatars2.githubusercontent.com/u/30433066?s=400&v=4",
+        "tags": [
+            "Android Kotlin",
+            "MVI",
+            "MVVM"
+        ]
+    },
+    {
+        "name": "Forecast App",
+        "description": "Forecast app to learn Android architecture.",
+        "url": "https://github.com/dhimasdewanto/ForecastApp",
+        "image_url": "https://avatars2.githubusercontent.com/u/30433066?s=400&v=4",
+        "tags": [
+            "Android Kotlin",
+            "MVVM",
+            "Forecast"
+        ]
+    },
+    {
+        "name": "Cocktail App",
+        "description": "Ultimate app for all of cocktails. Use https://www.thecocktaildb.com/api.php for API.",
+        "url": "https://github.com/dhimasdewanto/cocktail_app",
+        "image_url": "https://avatars2.githubusercontent.com/u/30433066?s=400&v=4",
+        "tags": [
+            "Flutter",
+            "BLoC",
+            "Cocktails"
+        ]
+    }
+]
