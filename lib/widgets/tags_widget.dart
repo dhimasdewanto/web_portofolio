@@ -2,27 +2,28 @@ import 'package:flutter/material.dart';
 
 class TagsWidget extends StatelessWidget {
   const TagsWidget({
-    Key key,
-    @required this.tags,
+    Key? key,
+    required this.tags,
   }) : super(key: key);
 
   final List<String> tags;
 
   @override
   Widget build(BuildContext context) {
-    final textColor = Theme.of(context).textTheme.bodyText1.color;
+    final textColor =
+        (Theme.of(context).textTheme.bodyText1 ?? const TextStyle()).color;
     final canvasColor = Theme.of(context).canvasColor;
 
     return Wrap(
-      spacing: 5.0,
+      spacing: 5,
       children: tags.map((tag) {
         return Container(
           padding: const EdgeInsets.symmetric(
-            vertical: 3.0,
-            horizontal: 8.0,
+            vertical: 3,
+            horizontal: 8,
           ),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(50.0),
+            borderRadius: BorderRadius.circular(50),
             color: textColor,
           ),
           child: Text(

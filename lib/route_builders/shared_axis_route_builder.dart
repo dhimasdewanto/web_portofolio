@@ -3,20 +3,20 @@ import 'package:flutter/material.dart';
 
 class SharedAxisRouteBuilder extends PageRouteBuilder {
   SharedAxisRouteBuilder({
-    @required Widget page,
-    @required SharedAxisTransitionType transitionType,
+    required Widget page,
+    required SharedAxisTransitionType transitionType,
   }) : super(
           pageBuilder: (
-            BuildContext context,
-            Animation<double> primaryAnimation,
-            Animation<double> secondaryAnimation,
+            context,
+            primaryAnimation,
+            secondaryAnimation,
           ) =>
               page,
           transitionsBuilder: (
-            BuildContext context,
-            Animation<double> primaryAnimation,
-            Animation<double> secondaryAnimation,
-            Widget child,
+            context,
+            primaryAnimation,
+            secondaryAnimation,
+            child,
           ) {
             return SharedAxisTransition(
               animation: primaryAnimation,

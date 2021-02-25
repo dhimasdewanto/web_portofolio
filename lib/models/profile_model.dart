@@ -1,13 +1,11 @@
-import 'package:meta/meta.dart';
-
 class ProfileModel {
   ProfileModel({
-    @required this.name,
-    @required this.description,
+    required this.name,
+    required this.description,
   });
 
   ProfileModel.fromJson(Map<String, dynamic> json)
-      : name = json['name'] as String,
+      : name = (json['name'] ?? "") as String,
         description = (json['description'] as List)
             .map<String>((desc) => desc as String)
             .toList();

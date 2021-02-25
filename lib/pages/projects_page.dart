@@ -8,7 +8,7 @@ import '../widgets/image_background.dart';
 import '../widgets/projects_widget.dart';
 
 class ProjectsPage extends StatelessWidget {
-  const ProjectsPage({Key key}) : super(key: key);
+  const ProjectsPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class ProjectsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).canvasColor,
-        elevation: 0.0,
+        elevation: 0,
         iconTheme: const IconThemeData(
           color: Colors.black,
         ),
@@ -45,8 +45,9 @@ class ProjectsPage extends StatelessWidget {
                 return const Offstage();
               }
 
+              final listProjects = snapshot.data ?? [];
               return ProjectsWidget(
-                listProjects: snapshot.data,
+                listProjects: listProjects,
                 title: Text(
                   "My Projects",
                   style: Theme.of(context).textTheme.headline2,

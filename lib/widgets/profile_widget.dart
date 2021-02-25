@@ -1,13 +1,14 @@
 import 'package:dough/dough.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:web_portofolio/models/profile_model.dart';
-import 'package:web_portofolio/settings/app_settings.dart';
+
+import '../models/profile_model.dart';
+import '../settings/app_settings.dart';
 
 class ProfileWidget extends StatelessWidget {
   const ProfileWidget({
-    Key key,
-    @required this.profile,
+    Key? key,
+    required this.profile,
   }) : super(key: key);
 
   final ProfileModel profile;
@@ -36,7 +37,7 @@ class ProfileWidget extends StatelessWidget {
               child: PressableDough(
                 child: Column(
                   children: [
-                    const SizedBox(height: 10.0),
+                    const SizedBox(height: 10),
                     Text(
                       desc,
                       textAlign: TextAlign.center,

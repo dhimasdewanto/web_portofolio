@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 
 class UniqueButton extends StatefulWidget {
   const UniqueButton({
-    Key key,
-    @required this.text,
-    @required this.onPressed,
+    Key? key,
+    required this.text,
+    required this.onPressed,
   }) : super(key: key);
 
   final String text;
@@ -16,20 +16,20 @@ class UniqueButton extends StatefulWidget {
 }
 
 class _UniqueButtonState extends State<UniqueButton> {
-  final _defaultRadius = BorderRadius.circular(10.0);
-  final _changeRadius = BorderRadius.circular(10.0);
+  final _defaultRadius = BorderRadius.circular(10);
+  final _changeRadius = BorderRadius.circular(10);
 
   final _defaultPadding = const EdgeInsets.symmetric(
-    horizontal: 30.0,
-    vertical: 15.0,
+    horizontal: 30,
+    vertical: 15,
   );
   final _changePadding = const EdgeInsets.symmetric(
-    horizontal: 50.0,
-    vertical: 15.0,
+    horizontal: 50,
+    vertical: 15,
   );
 
-  BorderRadius _borderRadius;
-  EdgeInsets _padding;
+  BorderRadius? _borderRadius;
+  EdgeInsets? _padding;
 
   @override
   void initState() {
@@ -42,6 +42,7 @@ class _UniqueButtonState extends State<UniqueButton> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final textTheme = theme.textTheme;
+    final headline6 = textTheme.headline6 ?? const TextStyle();
 
     return PressableDough(
       child: InkWell(
@@ -52,12 +53,12 @@ class _UniqueButtonState extends State<UniqueButton> {
           duration: const Duration(milliseconds: 500),
           padding: _padding,
           decoration: BoxDecoration(
-            color: textTheme.headline6.color,
+            color: headline6.color,
             borderRadius: _borderRadius,
           ),
           child: Text(
             widget.text,
-            style: textTheme.headline6.copyWith(
+            style: headline6.copyWith(
               color: theme.canvasColor,
             ),
           ),

@@ -2,16 +2,16 @@ import 'package:dough/dough.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:web_portofolio/widgets/tags_widget.dart';
 
 import '../models/project_model.dart';
 import '../settings/app_settings.dart';
+import 'tags_widget.dart';
 
 class ProjectsWidget extends StatelessWidget {
   const ProjectsWidget({
-    Key key,
-    @required this.title,
-    @required this.listProjects,
+    Key? key,
+    required this.title,
+    required this.listProjects,
   }) : super(key: key);
 
   final Widget title;
@@ -49,7 +49,7 @@ class ProjectsWidget extends StatelessWidget {
         return PressableDough(
           child: ListTile(
             leading: ClipRRect(
-              borderRadius: BorderRadius.circular(10.0),
+              borderRadius: BorderRadius.circular(10),
               child: Image.network(
                 project.imageUrl,
                 fit: BoxFit.cover,

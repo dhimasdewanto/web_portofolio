@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class ImageBackground extends StatelessWidget {
   const ImageBackground({
-    Key key,
-    @required this.alignment,
+    Key? key,
+    required this.alignment,
   }) : super(key: key);
 
   final Alignment alignment;

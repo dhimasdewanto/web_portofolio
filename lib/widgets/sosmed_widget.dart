@@ -2,12 +2,13 @@ import 'package:dough/dough.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:web_portofolio/models/sosmed_model.dart';
+
+import '../models/sosmed_model.dart';
 
 class SosmedWidget extends StatelessWidget {
   const SosmedWidget({
-    Key key,
-    @required this.listSosmeds,
+    Key? key,
+    required this.listSosmeds,
   }) : super(key: key);
 
   final List<SosmedModel> listSosmeds;
@@ -20,10 +21,10 @@ class SosmedWidget extends StatelessWidget {
         children: listSosmeds.map((sosmed) {
           return Padding(
             padding: const EdgeInsets.symmetric(
-              horizontal: 10.0,
+              horizontal: 10,
             ),
             child: PressableDough(
-              child: FlatButton.icon(
+              child: TextButton.icon(
                 icon: FaIcon(_getIcon(sosmed.iconName)),
                 label: Text(sosmed.name),
                 onPressed: () async {
@@ -37,7 +38,7 @@ class SosmedWidget extends StatelessWidget {
     );
   }
 
-  IconData _getIcon(String iconName) {
+  IconData _getIcon(String? iconName) {
     if (iconName == 'github') return FontAwesomeIcons.github;
     if (iconName == 'linkedin') return FontAwesomeIcons.linkedin;
     return FontAwesomeIcons.link;

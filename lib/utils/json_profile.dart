@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
-import 'package:web_portofolio/settings/app_settings.dart';
 
 import '../models/profile_model.dart';
+import '../settings/app_settings.dart';
 import 'json_reader.dart';
 
 class JsonProfile extends JsonReader<ProfileModel> {
