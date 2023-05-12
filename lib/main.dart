@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_web_plugins/url_strategy.dart';
 
 import 'pages/home_page.dart';
 
 void main() {
+  /// Remove /#/ from url path.
+  usePathUrlStrategy();
+
   runApp(const MyApp());
 }
 
@@ -29,6 +34,6 @@ class MyApp extends StatelessWidget {
         canvasColor: Colors.yellow,
       ),
       home: const HomePage(),
-    );
+    ).animate().fadeIn(duration: 400.ms);
   }
 }
