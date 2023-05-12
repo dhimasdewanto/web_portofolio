@@ -1,6 +1,5 @@
 import 'package:dough/dough.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
 import '../models/profile_model.dart';
 import '../settings/app_settings.dart';
@@ -26,7 +25,7 @@ class ProfileWidget extends StatelessWidget {
               child: Text(
                 profile.name,
                 textAlign: TextAlign.center,
-                style: textTheme.headline2,
+                style: textTheme.displayMedium,
               ),
             ),
           ),
@@ -41,7 +40,7 @@ class ProfileWidget extends StatelessWidget {
                     Text(
                       desc,
                       textAlign: TextAlign.center,
-                      style: textTheme.headline6,
+                      style: textTheme.titleLarge,
                     ),
                   ],
                 ),

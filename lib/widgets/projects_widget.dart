@@ -1,6 +1,5 @@
 import 'package:dough/dough.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../models/project_model.dart';
@@ -67,9 +66,10 @@ class ProjectsWidget extends StatelessWidget {
     );
   }
 
-  Future<void> _lauchUrl(String url) async {
-    if (await canLaunch(url)) {
-      await launch(url);
+  Future<void> _lauchUrl(String website) async {
+    final url = Uri.parse(website);
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url);
     }
   }
 }

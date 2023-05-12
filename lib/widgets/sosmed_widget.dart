@@ -44,9 +44,10 @@ class SosmedWidget extends StatelessWidget {
     return FontAwesomeIcons.link;
   }
 
-  Future<void> _lauchUrl(String url) async {
-    if (await canLaunch(url)) {
-      await launch(url);
+  Future<void> _lauchUrl(String website) async {
+    final url = Uri.parse(website);
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url);
     }
   }
 }

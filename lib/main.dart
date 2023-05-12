@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: "Dhimas Dewanto's Portofolio",
       theme: ThemeData(
         textTheme: const TextTheme(
-          headline2: TextStyle(
+          displayMedium: TextStyle(
             color: Colors.black,
           ),
         ),

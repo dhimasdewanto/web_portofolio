@@ -11,7 +11,7 @@ class TagsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textColor =
-        (Theme.of(context).textTheme.bodyText1 ?? const TextStyle()).color;
+        (Theme.of(context).textTheme.bodyLarge ?? const TextStyle()).color;
     final canvasColor = Theme.of(context).canvasColor;
 
     return Wrap(

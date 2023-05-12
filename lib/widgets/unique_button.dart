@@ -12,7 +12,7 @@ class UniqueButton extends StatefulWidget {
   final void Function() onPressed;
 
   @override
-  _UniqueButtonState createState() => _UniqueButtonState();
+  State<UniqueButton> createState() => _UniqueButtonState();
 }
 
 class _UniqueButtonState extends State<UniqueButton> {
@@ -42,7 +42,7 @@ class _UniqueButtonState extends State<UniqueButton> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final textTheme = theme.textTheme;
-    final headline6 = textTheme.headline6 ?? const TextStyle();
+    final headline6 = textTheme.titleLarge ?? const TextStyle();
 
     return PressableDough(
       child: InkWell(
