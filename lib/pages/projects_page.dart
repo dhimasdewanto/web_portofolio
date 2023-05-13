@@ -1,6 +1,5 @@
 import 'package:dough/dough.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
 import '../models/project_model.dart';
 import '../utils/json_projects.dart';
@@ -50,7 +49,7 @@ class ProjectsPage extends StatelessWidget {
                 listProjects: listProjects,
                 title: Text(
                   "My Projects",
-                  style: Theme.of(context).textTheme.headline2,
+                  style: Theme.of(context).textTheme.displayMedium,
                 ),
               );
             },

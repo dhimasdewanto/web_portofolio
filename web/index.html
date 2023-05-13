@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="$FLUTTER_BASE_HREF">
+
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="description" content="Dhimas Dewanto's Web Portofolio.">
@@ -12,22 +28,76 @@
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+  <link rel="icon" type="image/png" href="favicon.png" />
 
   <title>Dhimas Dewanto's Portofolio</title>
   <link rel="manifest" href="manifest.json">
-</head>
-<body>
-  <!-- This script installs service_worker.js to provide PWA functionality to
-       application. For more information, see:
-       https://developers.google.com/web/fundamentals/primers/service-workers -->
+
   <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function () {
-        navigator.serviceWorker.register('flutter_service_worker.js');
-      });
-    }
+    // The value below is injected by flutter build, do not touch.
+    var serviceWorkerVersion = null;
   </script>
-  <script src="main.dart.js" type="application/javascript"></script>
+  <!-- This script adds the flutter initialization JS code -->
+  <script src="flutter.js" defer></script>
+
+  <!-- For loading indicator style -->
+  <link rel="stylesheet" href="css/dot-elastic.css">
+</head>
+
+<body>
+  <style>
+    body {
+      background-color: #FFEB3B;
+      height: 100vh;
+      width: 100vw;
+
+      /* Remove scroll bar if overflow */
+      margin: 0;
+    }
+
+    .main-content {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      /* Must same with duration in index.html and main.dart */
+      transition: opacity .4s ease-out;
+    }
+  </style>
+
+  <script>
+    function delay(timeMiliseconds) {
+      return new Promise(resolve => setTimeout(resolve, timeMiliseconds));
+    }
+
+    window.addEventListener('load', function (ev) {
+      var loaderContent = document.querySelector('#loader-content');
+
+      // Must same with duration in index.html and main.dart
+      var durationAnimateInMs = 400;
+
+      // Download main.dart.js
+      _flutter.loader.loadEntrypoint({
+        serviceWorker: {
+          serviceWorkerVersion: serviceWorkerVersion,
+        },
+        onEntrypointLoaded: function (engineInitializer) {
+          engineInitializer.initializeEngine().then(async function (appRunner) {
+            loaderContent.style.opacity = "0";
+            await delay(durationAnimateInMs);
+
+            await appRunner.runApp();
+          });
+        }
+      });
+    });
+  </script>
+
+  <div class="main-content" id="loader-content">
+    <div class="dot-elastic"></div>
+  </div>
 </body>
+
 </html>
