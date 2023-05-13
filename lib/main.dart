@@ -16,6 +16,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Must same with duration in index.html and main.dart
+    const durationAnimate = Duration(milliseconds: 400);
+
     return MaterialApp(
       title: "Dhimas Dewanto's Portofolio",
       theme: ThemeData(
@@ -34,6 +37,6 @@ class MyApp extends StatelessWidget {
         canvasColor: Colors.yellow,
       ),
       home: const HomePage(),
-    ).animate().fadeIn(duration: 400.ms);
+    ).animate().fadeIn(duration: durationAnimate);
   }
 }

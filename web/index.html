@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <!--
     If you are serving your web app in a path other than the root, change the
@@ -27,7 +28,7 @@
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="icon" type="image/png" href="favicon.png" />
 
   <title>Dhimas Dewanto's Portofolio</title>
   <link rel="manifest" href="manifest.json">
@@ -38,23 +39,30 @@
   </script>
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
+
+  <!-- For loading indicator style -->
+  <link rel="stylesheet" href="css/dot-elastic.css">
 </head>
+
 <body>
   <style>
     body {
       background-color: #FFEB3B;
       height: 100vh;
       width: 100vw;
+
+      /* Remove scroll bar if overflow */
       margin: 0;
     }
 
     .main-content {
-      font-family: Arial, Helvetica, sans-serif;
       height: 100%;
       width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
+
+      /* Must same with duration in index.html and main.dart */
       transition: opacity .4s ease-out;
     }
   </style>
@@ -64,18 +72,21 @@
       return new Promise(resolve => setTimeout(resolve, timeMiliseconds));
     }
 
-    window.addEventListener('load', function(ev) {
+    window.addEventListener('load', function (ev) {
       var loaderContent = document.querySelector('#loader-content');
+
+      // Must same with duration in index.html and main.dart
+      var durationAnimateInMs = 400;
 
       // Download main.dart.js
       _flutter.loader.loadEntrypoint({
         serviceWorker: {
           serviceWorkerVersion: serviceWorkerVersion,
         },
-        onEntrypointLoaded: function(engineInitializer) {
-          engineInitializer.initializeEngine().then(async function(appRunner) {
+        onEntrypointLoaded: function (engineInitializer) {
+          engineInitializer.initializeEngine().then(async function (appRunner) {
             loaderContent.style.opacity = "0";
-            await delay(400);
+            await delay(durationAnimateInMs);
 
             await appRunner.runApp();
           });
@@ -85,7 +96,8 @@
   </script>
 
   <div class="main-content" id="loader-content">
-    <h2>Dhimas Dewanto's Portofolio...</h2>
+    <div class="dot-elastic"></div>
   </div>
 </body>
+
 </html>
