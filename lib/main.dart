@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
 
+import 'controllers/copy_text_widget.dart';
 import 'pages/home_page.dart';
 
 void main() {
@@ -36,7 +37,9 @@ class MyApp extends StatelessWidget {
         ),
         canvasColor: Colors.yellow,
       ),
-      home: const HomePage(),
+      home: const CopyTextWidget(
+        child: HomePage(),
+      ),
     ).animate().fadeIn(duration: durationAnimate);
   }
 }

@@ -1,6 +1,7 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 
+import '../controllers/copy_text_state.dart';
 import '../route_builders/shared_axis_route_builder.dart';
 import '../settings/app_settings.dart';
 import '../utils/json_profile_sosmed.dart';
@@ -24,33 +25,75 @@ class HomePage extends StatelessWidget {
             return const SizedBox();
           }
 
-          return Stack(
+          return Column(
             children: [
-              const ImageBackground(
-                alignment: Alignment.centerRight,
+              Expanded(
+                child: Stack(
+                  children: [
+                    const ImageBackground(
+                      alignment: Alignment.centerRight,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(AppSettings.padding),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          ProfileWidget(
+                            profile: profileSosmed.profile,
+                          ),
+                          const SizedBox(height: AppSettings.padding),
+                          SosmedWidget(
+                            listSosmeds: profileSosmed.listSosmeds,
+                          ),
+                          const SizedBox(height: AppSettings.padding),
+                          UniqueButton(
+                            text: 'My Projects',
+                            onPressed: () {
+                              final route = SharedAxisRouteBuilder(
+                                page: const ProjectsPage(),
+                                transitionType:
+                                    SharedAxisTransitionType.horizontal,
+                              );
+                              Navigator.push(context, route);
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
               Padding(
-                padding: const EdgeInsets.all(AppSettings.padding),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                padding: const EdgeInsets.only(
+                  bottom: AppSettings.paddingSmall,
+                  right: AppSettings.padding,
+                  left: AppSettings.padding,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    ProfileWidget(
-                      profile: profileSosmed.profile,
+                    Switch(
+                      value: CopyTextState.of(context).isCopy,
+                      activeTrackColor: Colors.yellow.shade800,
+                      activeColor: Colors.black,
+                      inactiveThumbColor: Colors.yellow.shade800,
+                      onChanged: CopyTextState.of(context).onChange,
                     ),
-                    const SizedBox(height: AppSettings.padding),
-                    SosmedWidget(
-                      listSosmeds: profileSosmed.listSosmeds,
+                    Text(
+                      "Copy text",
+                      style: Theme.of(context).textTheme.titleMedium,
                     ),
-                    const SizedBox(height: AppSettings.padding),
-                    UniqueButton(
-                      text: 'My Projects',
-                      onPressed: () {
-                        final route = SharedAxisRouteBuilder(
-                          page: const ProjectsPage(),
-                          transitionType: SharedAxisTransitionType.horizontal,
-                        );
-                        Navigator.push(context, route);
-                      },
+                    const SizedBox(width: AppSettings.padding),
+                    Switch(
+                      value: true,
+                      activeTrackColor: Colors.yellow.shade800,
+                      activeColor: Colors.black,
+                      inactiveThumbColor: Colors.yellow.shade800,
+                      onChanged: (value) {},
+                    ),
+                    Text(
+                      "Indonesia",
+                      style: Theme.of(context).textTheme.titleMedium,
                     ),
                   ],
                 ),
