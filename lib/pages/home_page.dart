@@ -1,15 +1,14 @@
-import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../controllers/copy_text_state.dart';
-import '../route_builders/shared_axis_route_builder.dart';
+import '../main.dart';
 import '../settings/app_settings.dart';
 import '../utils/json_profile_sosmed.dart';
 import '../widgets/image_background.dart';
 import '../widgets/profile_widget.dart';
 import '../widgets/sosmed_widget.dart';
 import '../widgets/unique_button.dart';
-import 'projects_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -49,12 +48,7 @@ class HomePage extends StatelessWidget {
                           UniqueButton(
                             text: 'My Projects',
                             onPressed: () {
-                              final route = SharedAxisRouteBuilder(
-                                page: const ProjectsPage(),
-                                transitionType:
-                                    SharedAxisTransitionType.horizontal,
-                              );
-                              Navigator.push(context, route);
+                              context.push(goProjects);
                             },
                           ),
                         ],
