@@ -24,7 +24,9 @@ final _router = GoRouter(
       path: goProjects,
       pageBuilder: (context, state) {
         return CustomTransitionPage(
-          child: const ProjectsPage(),
+          child: const CopyTextWidget(
+            child: ProjectsPage(),
+          ),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             return SharedAxisTransition(
               animation: animation,

@@ -1,5 +1,5 @@
-import 'package:dough/dough.dart';
 import 'package:flutter/material.dart';
+import 'package:web_portofolio/widgets/dough_widget.dart';
 
 class UniqueButton extends StatefulWidget {
   const UniqueButton({
@@ -44,7 +44,8 @@ class _UniqueButtonState extends State<UniqueButton> {
     final textTheme = theme.textTheme;
     final headline6 = textTheme.titleLarge ?? const TextStyle();
 
-    return PressableDough(
+    return DoughWidget(
+      useMouseRegion: false,
       child: InkWell(
         onTap: widget.onPressed,
         onHover: _changeBorderRadius,

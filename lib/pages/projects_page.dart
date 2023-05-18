@@ -1,9 +1,9 @@
-import 'package:dough/dough.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../models/project_model.dart';
 import '../utils/json_projects.dart';
+import '../widgets/dough_widget.dart';
 import '../widgets/image_background.dart';
 import '../widgets/projects_widget.dart';
 
@@ -24,14 +24,11 @@ class ProjectsPage extends StatelessWidget {
         ),
         title: canPop == false
             ? null
-            : const MouseRegion(
-                cursor: SystemMouseCursors.text,
-                child: PressableDough(
-                  child: Text(
-                    "Back to Profile",
-                    style: TextStyle(
-                      color: Colors.black,
-                    ),
+            : const DoughWidget(
+                child: Text(
+                  "Back to Profile",
+                  style: TextStyle(
+                    color: Colors.black,
                   ),
                 ),
               ),

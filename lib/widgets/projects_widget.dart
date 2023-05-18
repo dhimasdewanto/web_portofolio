@@ -1,9 +1,9 @@
-import 'package:dough/dough.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../models/project_model.dart';
 import '../settings/app_settings.dart';
+import 'dough_widget.dart';
 import 'tags_widget.dart';
 
 class ProjectsWidget extends StatelessWidget {
@@ -32,11 +32,8 @@ class ProjectsWidget extends StatelessWidget {
               vertical: AppSettings.padding,
             ),
             child: Center(
-              child: MouseRegion(
-                cursor: SystemMouseCursors.text,
-                child: PressableDough(
-                  child: title,
-                ),
+              child: DoughWidget(
+                child: title,
               ),
             ),
           );
@@ -45,7 +42,8 @@ class ProjectsWidget extends StatelessWidget {
         // Get index -1 because of top ListView.
         final project = listProjects[index - 1];
 
-        return PressableDough(
+        return DoughWidget(
+          useMouseRegion: false,
           child: ListTile(
             leading: ClipRRect(
               borderRadius: BorderRadius.circular(10),

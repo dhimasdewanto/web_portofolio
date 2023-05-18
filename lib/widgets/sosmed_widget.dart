@@ -1,9 +1,9 @@
-import 'package:dough/dough.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../models/sosmed_model.dart';
+import 'dough_widget.dart';
 
 class SosmedWidget extends StatelessWidget {
   const SosmedWidget({
@@ -23,7 +23,8 @@ class SosmedWidget extends StatelessWidget {
             padding: const EdgeInsets.symmetric(
               horizontal: 10,
             ),
-            child: PressableDough(
+            child: DoughWidget(
+              useMouseRegion: false,
               child: TextButton.icon(
                 icon: FaIcon(_getIcon(sosmed.iconName)),
                 label: Text(sosmed.name),
