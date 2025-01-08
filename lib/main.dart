@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "Dhimas Dewanto's Portofolio",
       theme: ThemeData(
+        useMaterial3: false,
         textTheme: const TextTheme(
           displayMedium: TextStyle(
             color: Colors.black,
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
         ),
         textButtonTheme: TextButtonThemeData(
           style: ButtonStyle(
-            foregroundColor: MaterialStateProperty.resolveWith<Color>(
+            foregroundColor: WidgetStateProperty.resolveWith<Color>(
               (states) => Colors.black,
             ),
           ),
