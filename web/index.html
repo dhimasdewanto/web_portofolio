@@ -23,16 +23,47 @@
   <!-- iOS meta tags & icons -->
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="web_portofolio">
+  <meta name="apple-mobile-web-app-title" content="Dhimas Dewanto's Portofolio">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
 
-  <title>web_portofolio</title>
+  <title>Dhimas Dewanto's Portofolio</title>
   <link rel="manifest" href="manifest.json">
+
+  <!-- For loading indicator css -->
+  <link rel="stylesheet" href="css/dot-elastic.css">
 </head>
 <body>
   <script src="flutter_bootstrap.js" async></script>
+
+  <!-- For loading indicator to show up -->
+  <style>
+    body {
+      background-color: #FFEB3B;
+      height: 100vh;
+      width: 100vw;
+
+      /* Remove scroll bar if overflow */
+      margin: 0;
+    }
+
+    .main-content {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      /* Must same with duration in index.html and main.dart */
+      transition: opacity .4s ease-out;
+    }
+  </style>
+
+  <!-- For loading indicator to show up -->
+  <div class="main-content" id="loader-content">
+    <div class="dot-elastic"></div>
+  </div>
 </body>
 </html>
