@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 
 class UniqueButton extends StatefulWidget {
   const UniqueButton({
-    Key? key,
+    super.key,
     required this.text,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   final String text;
   final void Function() onPressed;

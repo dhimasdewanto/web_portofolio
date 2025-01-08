@@ -1,5 +1,3 @@
-import 'package:flutter/widgets.dart';
-
 import '../models/profile_model.dart';
 import '../models/profile_sosmed_model.dart';
 import '../models/sosmed_model.dart';
@@ -8,7 +6,7 @@ import 'json_reader.dart';
 import 'json_sosmed.dart';
 
 class JsonProfileSosmed extends JsonReader<ProfileSosmedModel?> {
-  JsonProfileSosmed(BuildContext context) : super(context);
+  JsonProfileSosmed(super.context);
 
   @override
   Future<ProfileSosmedModel?> getJsonFile() async {

@@ -6,9 +6,9 @@ import '../settings/app_settings.dart';
 
 class ProfileWidget extends StatelessWidget {
   const ProfileWidget({
-    Key? key,
+    super.key,
     required this.profile,
-  }) : super(key: key);
+  });
 
   final ProfileModel profile;
 
@@ -46,7 +46,7 @@ class ProfileWidget extends StatelessWidget {
                 ),
               ),
             );
-          }).toList(),
+          }),
         ],
       ),
     );

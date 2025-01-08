@@ -7,7 +7,7 @@ import '../widgets/image_background.dart';
 import '../widgets/projects_widget.dart';
 
 class ProjectsPage extends StatelessWidget {
-  const ProjectsPage({Key? key}) : super(key: key);
+  const ProjectsPage({super.key});
 
   @override
   Widget build(BuildContext context) {

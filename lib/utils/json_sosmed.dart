@@ -1,11 +1,9 @@
-import 'package:flutter/widgets.dart';
-
 import '../models/sosmed_model.dart';
 import '../settings/app_settings.dart';
 import 'json_reader.dart';
 
 class JsonSosmed extends JsonReader<List<SosmedModel>> {
-  JsonSosmed(BuildContext context) : super(context);
+  JsonSosmed(super.context);
 
   @override
   Future<List<SosmedModel>> getJsonFile() async {

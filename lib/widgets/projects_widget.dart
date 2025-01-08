@@ -8,10 +8,10 @@ import 'tags_widget.dart';
 
 class ProjectsWidget extends StatelessWidget {
   const ProjectsWidget({
-    Key? key,
+    super.key,
     required this.title,
     required this.listProjects,
-  }) : super(key: key);
+  });
 
   final Widget title;
   final List<ProjectModel> listProjects;

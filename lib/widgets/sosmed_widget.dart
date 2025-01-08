@@ -7,9 +7,9 @@ import '../models/sosmed_model.dart';
 
 class SosmedWidget extends StatelessWidget {
   const SosmedWidget({
-    Key? key,
+    super.key,
     required this.listSosmeds,
-  }) : super(key: key);
+  });
 
   final List<SosmedModel> listSosmeds;
 
