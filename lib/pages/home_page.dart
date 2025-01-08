@@ -8,7 +8,7 @@ import '../widgets/image_background.dart';
 import '../widgets/profile_widget.dart';
 import '../widgets/sosmed_widget.dart';
 import '../widgets/unique_button.dart';
-import 'projects_page.dart';
+import 'projects_page_v2.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -46,7 +46,7 @@ class HomePage extends StatelessWidget {
                       text: 'My Projects',
                       onPressed: () {
                         final route = SharedAxisRouteBuilder(
-                          page: const ProjectsPage(),
+                          page: const ProjectsPageV2(),
                           transitionType: SharedAxisTransitionType.horizontal,
                         );
                         Navigator.push(context, route);
