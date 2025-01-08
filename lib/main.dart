@@ -22,20 +22,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "Dhimas Dewanto's Portofolio",
       theme: ThemeData(
-        useMaterial3: false,
-        textTheme: const TextTheme(
-          displayMedium: TextStyle(
-            color: Colors.black,
-          ),
-        ),
-        textButtonTheme: TextButtonThemeData(
-          style: ButtonStyle(
-            foregroundColor: WidgetStateProperty.resolveWith<Color>(
-              (states) => Colors.black,
-            ),
-          ),
-        ),
-        canvasColor: Colors.yellow,
+        scaffoldBackgroundColor: Colors.yellow,
       ),
       home: const HomePage(),
     ).animate().fadeIn(duration: durationAnimate);

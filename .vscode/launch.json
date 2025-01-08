@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        
+        {
+            "name": "Run Flutter Web",
+            "type": "dart",
+            "request": "launch",
+            "program": "lib/main.dart"
+        }
+    ]
+}

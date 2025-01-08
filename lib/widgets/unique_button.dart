@@ -38,6 +38,18 @@ class _UniqueButtonState extends State<UniqueButton> {
     _padding = _defaultPadding;
   }
 
+  void _changeBorderRadius(bool isHover) {
+    setState(() {
+      if (isHover) {
+        _borderRadius = _changeRadius;
+        _padding = _changePadding;
+      } else {
+        _borderRadius = _defaultRadius;
+        _padding = _defaultPadding;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -59,23 +71,11 @@ class _UniqueButtonState extends State<UniqueButton> {
           child: Text(
             widget.text,
             style: headline6.copyWith(
-              color: theme.canvasColor,
+              color: theme.scaffoldBackgroundColor,
             ),
           ),
         ),
       ),
     );
-  }
-
-  void _changeBorderRadius(bool isHover) {
-    setState(() {
-      if (isHover) {
-        _borderRadius = _changeRadius;
-        _padding = _changePadding;
-      } else {
-        _borderRadius = _defaultRadius;
-        _padding = _defaultPadding;
-      }
-    });
   }
 }

@@ -12,7 +12,7 @@ class TagsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final textColor =
         (Theme.of(context).textTheme.bodyLarge ?? const TextStyle()).color;
-    final canvasColor = Theme.of(context).canvasColor;
+    final scaffoldBackgroundColor = Theme.of(context).scaffoldBackgroundColor;
 
     return Wrap(
       spacing: 5,
@@ -29,7 +29,7 @@ class TagsWidget extends StatelessWidget {
           child: Text(
             tag,
             style: TextStyle(
-              color: canvasColor,
+              color: scaffoldBackgroundColor,
             ),
           ),
         );

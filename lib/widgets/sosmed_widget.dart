@@ -15,6 +15,9 @@ class SosmedWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+    final bodyLarge = textTheme.bodyLarge;
+
     return Center(
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -25,8 +28,14 @@ class SosmedWidget extends StatelessWidget {
             ),
             child: PressableDough(
               child: TextButton.icon(
-                icon: FaIcon(_getIcon(sosmed.iconName)),
-                label: Text(sosmed.name),
+                icon: FaIcon(
+                  _getIcon(sosmed.iconName),
+                  color: bodyLarge?.color,
+                ),
+                label: Text(
+                  sosmed.name,
+                  style: bodyLarge,
+                ),
                 onPressed: () async {
                   await _lauchUrl(sosmed.link);
                 },
