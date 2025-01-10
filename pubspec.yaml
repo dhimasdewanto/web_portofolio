@@ -50,6 +50,7 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/images/ams/
     - assets/images/comic_reader/
     - assets/images/ditonton/
     - assets/images/game_database/

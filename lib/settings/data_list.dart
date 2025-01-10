@@ -35,6 +35,30 @@ class DataList {
   List<ProjectModel> getProjects() {
     return [
       ProjectModel(
+        title: "Activity Management System",
+        description:
+            "AMS is a powerful tool for insurance professional to manage your sales and recruiting activities under one intuitive application. It will help you to be able to focus and prioritize on the right activities which ultimately increase efficiency and drive better result.",
+        projectType: "Flutter",
+        images: List.generate(
+          5,
+          (index) => "assets/images/ams/$index.webp",
+        ),
+        links: [
+          ProjectModelLink(
+              linkTitle: "PlayStore",
+              link:
+                  "https://play.google.com/store/apps/details?id=id.co.tokiomarine_life.salesmanagementactivity"),
+        ],
+        appIcon: ClipRRect(
+          borderRadius: BorderRadius.circular(10),
+          child: Image.asset(
+            "assets/images/ams/icon.webp",
+            height: 80,
+            width: 80,
+          ),
+        ),
+      ),
+      ProjectModel(
         title: "Ditonton",
         description:
             "Ditonton is an application that displays a catalog of the most popular films with data from The Movie Database.",
@@ -55,7 +79,7 @@ class DataList {
             color: Color(0xFF001D3D),
             borderRadius: BorderRadius.circular(10),
           ),
-          child: Image.network(
+          child: Image.asset(
             "assets/images/ditonton/icon.png",
             height: 70,
             width: 70,
@@ -78,7 +102,7 @@ class DataList {
         ],
         appIcon: ClipRRect(
           borderRadius: BorderRadius.circular(10),
-          child: Image.network(
+          child: Image.asset(
             "assets/images/game_database/icon.png",
             height: 80,
             width: 80,
@@ -96,7 +120,7 @@ class DataList {
         links: [],
         appIcon: ClipRRect(
           borderRadius: BorderRadius.circular(10),
-          child: Image.network(
+          child: Image.asset(
             "assets/images/comic_reader/icon.png",
             height: 80,
             width: 80,
