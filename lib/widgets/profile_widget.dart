@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../models/profile_model.dart';
-import '../settings/app_settings.dart';
 import 'text_pressable_dough.dart';
 
 class ProfileWidget extends StatelessWidget {
@@ -26,7 +25,7 @@ class ProfileWidget extends StatelessWidget {
               style: textTheme.displayMedium,
             ),
           ),
-          const SizedBox(height: AppSettings.padding),
+          const SizedBox(height: 30),
           ...profile.description.map((desc) {
             return TextPressableDough(
               child: Column(

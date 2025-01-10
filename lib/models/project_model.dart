@@ -1,22 +1,19 @@
+import 'package:flutter/widgets.dart';
+
+import 'project_model_link.dart';
+
 class ProjectModel {
   ProjectModel({
-    required this.name,
+    required this.title,
     required this.description,
-    required this.url,
-    required this.imageUrl,
-    required this.tags,
+    required this.images,
+    required this.links,
+    required this.appIcon,
   });
 
-  ProjectModel.fromJson(Map<String, dynamic> json)
-      : name = (json['name'] ?? "") as String,
-        description = (json['description'] ?? "") as String,
-        url = (json['url'] ?? "") as String,
-        imageUrl = (json['image_url'] ?? "") as String,
-        tags = ((json['tags'] as List).map((tag) => tag as String).toList());
-
-  final String name;
+  final String title;
   final String description;
-  final String url;
-  final String imageUrl;
-  final List<String> tags;
+  final List<String> images;
+  final List<ProjectModelLink> links;
+  final Widget appIcon;
 }

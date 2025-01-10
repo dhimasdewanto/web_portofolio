@@ -2,62 +2,55 @@ import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 
 import '../route_builders/shared_axis_route_builder.dart';
-import '../settings/app_settings.dart';
-import '../utils/json_profile_sosmed.dart';
+import '../settings/data_list.dart';
 import '../widgets/image_background.dart';
 import '../widgets/profile_widget.dart';
 import '../widgets/sosmed_widget.dart';
 import '../widgets/unique_button.dart';
-import 'projects_page_v2.dart';
+import 'projects_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: FutureBuilder(
-        future: JsonProfileSosmed(context).getJsonFile(),
-        builder: (context, snapshot) {
-          final profileSosmed = snapshot.data;
-          if (profileSosmed == null) {
-            return const SizedBox();
-          }
+    final dataList = DataList();
+    final profile = dataList.getProfile();
+    final listSosmeds = dataList.getSosmeds();
 
-          return Stack(
-            children: [
-              const ImageBackground(
-                alignment: Alignment.centerRight,
-              ),
-              Padding(
-                padding: const EdgeInsets.all(AppSettings.padding),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    ProfileWidget(
-                      profile: profileSosmed.profile,
-                    ),
-                    const SizedBox(height: AppSettings.padding),
-                    SosmedWidget(
-                      listSosmeds: profileSosmed.listSosmeds,
-                    ),
-                    const SizedBox(height: AppSettings.padding),
-                    UniqueButton(
-                      text: 'My Projects',
-                      onPressed: () {
-                        final route = SharedAxisRouteBuilder(
-                          page: const ProjectsPageV2(),
-                          transitionType: SharedAxisTransitionType.horizontal,
-                        );
-                        Navigator.push(context, route);
-                      },
-                    ),
-                  ],
+    return Scaffold(
+      body: Stack(
+        children: [
+          const ImageBackground(
+            alignment: Alignment.centerRight,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(30),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ProfileWidget(
+                  profile: profile,
                 ),
-              ),
-            ],
-          );
-        },
+                const SizedBox(height: 30),
+                SosmedWidget(
+                  listSosmeds: listSosmeds,
+                ),
+                const SizedBox(height: 30),
+                UniqueButton(
+                  text: 'My Projects',
+                  onPressed: () {
+                    final route = SharedAxisRouteBuilder(
+                      page: const ProjectsPage(),
+                      transitionType: SharedAxisTransitionType.horizontal,
+                    );
+                    Navigator.push(context, route);
+                  },
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
