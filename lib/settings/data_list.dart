@@ -85,6 +85,24 @@ class DataList {
           ),
         ),
       ),
+      ProjectModel(
+        title: "Comic Reader",
+        description: "Read comic from format .cbz",
+        projectType: "Flutter Desktop",
+        images: List.generate(
+          3,
+          (index) => "assets/images/comic_reader/$index.png",
+        ),
+        links: [],
+        appIcon: ClipRRect(
+          borderRadius: BorderRadius.circular(10),
+          child: Image.network(
+            "assets/images/comic_reader/icon.png",
+            height: 80,
+            width: 80,
+          ),
+        ),
+      ),
     ];
   }
 }
