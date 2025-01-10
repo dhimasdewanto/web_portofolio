@@ -51,3 +51,5 @@ flutter:
   assets:
     - assets/data/
     - assets/images/
+    - assets/images/ditonton/
+    - assets/images/game_database/

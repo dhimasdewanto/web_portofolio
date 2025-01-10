@@ -1,0 +1,19 @@
+import 'package:flutter/widgets.dart';
+
+import 'project_model_link.dart';
+
+class ProjectModelV2 {
+  ProjectModelV2({
+    required this.title,
+    required this.description,
+    required this.images,
+    required this.links,
+    required this.appIcon,
+  });
+
+  final String title;
+  final String description;
+  final List<String> images;
+  final List<ProjectModelLink> links;
+  final Widget appIcon;
+}

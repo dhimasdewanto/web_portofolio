@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../settings/app_settings.dart';
+import '../settings/projects_list.dart';
 import '../widgets/image_background.dart';
 import '../widgets/unique_button.dart';
 
@@ -21,10 +22,14 @@ class ProjectsPageV2 extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     final textColor = textTheme.bodyMedium?.color;
+    final listProjects = ProjectsList().getList();
 
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+
+        /// Disable color change on scroll.
+        surfaceTintColor: Colors.transparent,
         centerTitle: false,
         title: MouseRegion(
           cursor: SystemMouseCursors.text,
@@ -43,68 +48,57 @@ class ProjectsPageV2 extends StatelessWidget {
           const ImageBackground(
             alignment: Alignment.center,
           ),
-          ListView(
+          ListView.separated(
             padding: const EdgeInsets.all(AppSettings.padding),
-            children: [
-              Column(
+            itemCount: listProjects.length,
+            separatorBuilder: (context, index) {
+              return const SizedBox(height: 50);
+            },
+            itemBuilder: (context, index) {
+              final project = listProjects[index];
+              return Column(
                 spacing: 20,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   /// Wrap: Like row, with autowrap to new line.
                   Wrap(
                     spacing: 20,
+                    runSpacing: 20,
                     children: [
-                      /// App Icon
-                      Image.network(
-                        "https://avatars2.githubusercontent.com/u/30433066?s=400&v=4",
-                        height: 80,
-                        width: 80,
-                      ),
+                      /// App icon
+                      project.appIcon,
                       Column(
                         spacing: 10,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "ASCII Image Converter",
+                            project.title,
                             style: textTheme.displaySmall,
                           ),
                           Wrap(
-                            spacing: 20,
+                            spacing: 10,
+                            runSpacing: 10,
                             children: [
+                              /// App title.
                               Text(
-                                "Convert your image to ASCII format.",
+                                project.description,
                                 style: textTheme.titleMedium,
                               ),
-                              Text(
-                                "Convert your image to ASCII format.",
-                                style: textTheme.titleMedium,
-                              ),
-                              UniqueButton(
-                                text: "Play Store",
-                                onPressed: () => _lauchUrl(
-                                    "https://github.com/dhimasdewanto/convert_image_to_ascii"),
-                                textStyle: textTheme.bodyMedium,
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 10,
-                                  vertical: 3,
-                                ),
-                                onHoverPadding: const EdgeInsets.symmetric(
-                                  horizontal: 20,
-                                  vertical: 3,
-                                ),
-                              ),
-                              UniqueButton(
-                                text: "GitHub",
-                                onPressed: () => _lauchUrl(
-                                    "https://github.com/dhimasdewanto/convert_image_to_ascii"),
-                                textStyle: textTheme.bodyMedium,
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 10,
-                                  vertical: 3,
-                                ),
-                                onHoverPadding: const EdgeInsets.symmetric(
-                                  horizontal: 20,
-                                  vertical: 3,
+
+                              /// Button links.
+                              ...project.links.map(
+                                (link) => UniqueButton(
+                                  text: link.linkTitle,
+                                  onPressed: () => _lauchUrl(link.link),
+                                  textStyle: textTheme.bodyMedium,
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 10,
+                                    vertical: 3,
+                                  ),
+                                  onHoverPadding: const EdgeInsets.symmetric(
+                                    horizontal: 20,
+                                    vertical: 3,
+                                  ),
                                 ),
                               ),
                             ],
@@ -113,59 +107,44 @@ class ProjectsPageV2 extends StatelessWidget {
                       ),
                     ],
                   ),
+
+                  /// Image showcase.
                   SizedBox(
                     height: 500,
                     child: ScrollConfiguration(
                       behavior: TouchAndMouseScrollBehavior(),
-                      child: ListView(
+                      child: ListView.separated(
                         scrollDirection: Axis.horizontal,
-                        children: [
-                          InkWell(
+                        itemCount: project.images.length,
+                        separatorBuilder: (context, index) {
+                          return const SizedBox(width: 20);
+                        },
+                        itemBuilder: (context, index) {
+                          final img = project.images[index];
+                          return InkWell(
                             onTap: () {
                               showDialog(
                                 context: context,
                                 barrierDismissible: true,
                                 builder: (context) {
                                   return Dialog(
-                                    child: Image.asset(
-                                      "assets/images/project_image_1.webp",
-                                    ),
+                                    child: Image.asset(img),
                                   );
                                 },
                               );
                             },
                             child: Image.asset(
-                              "assets/images/project_image_1.webp",
+                              img,
                               height: 500,
                             ),
-                          ),
-                          SizedBox(width: 20),
-                          Image.asset(
-                            "assets/images/project_image_1.webp",
-                            height: 500,
-                          ),
-                          SizedBox(width: 20),
-                          Image.asset(
-                            "assets/images/project_image_1.webp",
-                            height: 500,
-                          ),
-                          SizedBox(width: 20),
-                          Image.asset(
-                            "assets/images/project_image_1.webp",
-                            height: 500,
-                          ),
-                          SizedBox(width: 20),
-                          Image.asset(
-                            "assets/images/project_image_1.webp",
-                            height: 500,
-                          ),
-                        ],
+                          );
+                        },
                       ),
                     ),
                   ),
                 ],
-              ),
-            ],
+              );
+            },
           ),
         ],
       ),
