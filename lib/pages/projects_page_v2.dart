@@ -1,4 +1,3 @@
-import 'package:dough/dough.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -6,6 +5,8 @@ import 'package:url_launcher/url_launcher.dart';
 import '../settings/app_settings.dart';
 import '../settings/projects_list.dart';
 import '../widgets/image_background.dart';
+import '../widgets/image_ss_widget.dart';
+import '../widgets/text_pressable_dough.dart';
 import '../widgets/unique_button.dart';
 
 class ProjectsPageV2 extends StatelessWidget {
@@ -33,7 +34,7 @@ class ProjectsPageV2 extends StatelessWidget {
         centerTitle: false,
         title: MouseRegion(
           cursor: SystemMouseCursors.text,
-          child: PressableDough(
+          child: TextPressableDough(
             child: Text(
               "Back to Profile",
               style: TextStyle(
@@ -67,22 +68,22 @@ class ProjectsPageV2 extends StatelessWidget {
                     children: [
                       /// App icon
                       project.appIcon,
+
                       Column(
                         spacing: 10,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            project.title,
-                            style: textTheme.displaySmall,
-                          ),
                           Wrap(
-                            spacing: 10,
+                            spacing: 15,
                             runSpacing: 10,
+                            crossAxisAlignment: WrapCrossAlignment.center,
                             children: [
                               /// App title.
-                              Text(
-                                project.description,
-                                style: textTheme.titleMedium,
+                              TextPressableDough(
+                                child: Text(
+                                  project.title,
+                                  style: textTheme.displaySmall,
+                                ),
                               ),
 
                               /// Button links.
@@ -103,6 +104,14 @@ class ProjectsPageV2 extends StatelessWidget {
                               ),
                             ],
                           ),
+
+                          /// App description.
+                          TextPressableDough(
+                            child: Text(
+                              project.description,
+                              style: textTheme.titleMedium,
+                            ),
+                          ),
                         ],
                       ),
                     ],
@@ -121,23 +130,7 @@ class ProjectsPageV2 extends StatelessWidget {
                         },
                         itemBuilder: (context, index) {
                           final img = project.images[index];
-                          return InkWell(
-                            onTap: () {
-                              showDialog(
-                                context: context,
-                                barrierDismissible: true,
-                                builder: (context) {
-                                  return Dialog(
-                                    child: Image.asset(img),
-                                  );
-                                },
-                              );
-                            },
-                            child: Image.asset(
-                              img,
-                              height: 500,
-                            ),
-                          );
+                          return ImageSsWidget(imageLink: img);
                         },
                       ),
                     ),
