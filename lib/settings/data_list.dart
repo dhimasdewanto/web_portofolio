@@ -38,6 +38,7 @@ class DataList {
         title: "Ditonton",
         description:
             "Ditonton is an application that displays a catalog of the most popular films with data from The Movie Database.",
+        projectType: "Flutter + TDD + Modularization",
         images: List.generate(
           6,
           (index) => "assets/images/ditonton/$index.jpg",
@@ -64,6 +65,7 @@ class DataList {
       ProjectModel(
         title: "RawgGames",
         description: "Game Database based on rawg.io",
+        projectType: "SwiftUI + TDD + Modularization",
         images: List.generate(
           7,
           (index) => "assets/images/game_database/$index.png",

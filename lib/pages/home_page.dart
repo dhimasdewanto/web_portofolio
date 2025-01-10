@@ -17,6 +17,7 @@ class HomePage extends StatelessWidget {
     final dataList = DataList();
     final profile = dataList.getProfile();
     final listSosmeds = dataList.getSosmeds();
+    final listProjects = dataList.getProjects();
 
     return Scaffold(
       body: Stack(
@@ -41,7 +42,9 @@ class HomePage extends StatelessWidget {
                   text: 'My Projects',
                   onPressed: () {
                     final route = SharedAxisRouteBuilder(
-                      page: const ProjectsPage(),
+                      page: ProjectsPage(
+                        listProjects: listProjects,
+                      ),
                       transitionType: SharedAxisTransitionType.horizontal,
                     );
                     Navigator.push(context, route);

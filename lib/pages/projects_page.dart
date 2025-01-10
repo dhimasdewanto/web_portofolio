@@ -2,14 +2,19 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../settings/data_list.dart';
+import '../models/project_model.dart';
 import '../widgets/image_background.dart';
 import '../widgets/image_ss_widget.dart';
 import '../widgets/text_pressable_dough.dart';
 import '../widgets/unique_button.dart';
 
 class ProjectsPage extends StatelessWidget {
-  const ProjectsPage({super.key});
+  const ProjectsPage({
+    super.key,
+    required this.listProjects,
+  });
+
+  final List<ProjectModel> listProjects;
 
   Future<void> _lauchUrl(String website) async {
     final url = Uri.parse(website);
@@ -22,7 +27,6 @@ class ProjectsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     final textColor = textTheme.bodyMedium?.color;
-    final listProjects = DataList().getProjects();
 
     return Scaffold(
       appBar: AppBar(
@@ -82,6 +86,14 @@ class ProjectsPage extends StatelessWidget {
                                 child: Text(
                                   project.title,
                                   style: textTheme.displaySmall,
+                                ),
+                              ),
+
+                              /// Project type
+                              Text(
+                                project.projectType,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w500,
                                 ),
                               ),
 

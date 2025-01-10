@@ -6,6 +6,7 @@ class ProjectModel {
   ProjectModel({
     required this.title,
     required this.description,
+    required this.projectType,
     required this.images,
     required this.links,
     required this.appIcon,
@@ -13,6 +14,7 @@ class ProjectModel {
 
   final String title;
   final String description;
+  final String projectType;
   final List<String> images;
   final List<ProjectModelLink> links;
   final Widget appIcon;
